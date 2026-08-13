@@ -1,0 +1,899 @@
+:root {
+  --red: #b11226;
+  --red-dark: #7d0c19;
+  --black: #0b0b0d;
+  --ink: #1f2024;
+  --muted: #686b73;
+  --line: #e7e7ea;
+  --white: #ffffff;
+  --soft: #f7f7f8;
+  --shadow: 0 22px 70px rgba(11, 11, 13, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: var(--white);
+  letter-spacing: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px clamp(18px, 4vw, 56px);
+  background: rgba(255, 255, 255, 0.94);
+  border-bottom: 1px solid rgba(11, 11, 13, 0.08);
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 220px;
+}
+
+.brand-logo {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.brand strong,
+.brand small {
+  display: block;
+  line-height: 1.1;
+}
+
+.brand small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 2.4vw, 28px);
+  color: var(--black);
+  font-size: 0.94rem;
+  font-weight: 700;
+}
+
+nav a {
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-cta {
+  padding: 0 18px;
+  color: var(--white);
+  background: var(--black);
+  border-radius: 8px;
+}
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  padding: 128px clamp(20px, 6vw, 76px) 72px;
+  background: var(--black);
+}
+
+.hero-image,
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-image {
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.52) 34%, rgba(0, 0, 0, 0.08) 68%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(650px, 100%);
+  color: var(--white);
+}
+
+.eyebrow,
+.section-label {
+  margin: 0 0 14px;
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero .eyebrow {
+  color: #ffdadf;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1 {
+  max-width: 11ch;
+  margin-bottom: 24px;
+  font-size: clamp(3.1rem, 8vw, 6.9rem);
+  line-height: 0.95;
+  font-weight: 800;
+}
+
+h2 {
+  margin-bottom: 18px;
+  color: var(--black);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1;
+  font-weight: 800;
+}
+
+h3 {
+  margin-bottom: 10px;
+  color: var(--black);
+  font-size: 1.08rem;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.hero-copy {
+  max-width: 590px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 2vw, 1.22rem);
+}
+
+.hero-actions,
+.mls-section {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  font-weight: 800;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button.primary {
+  color: var(--white);
+  background: var(--red);
+}
+
+.button.primary:hover {
+  background: var(--red-dark);
+}
+
+.button.secondary {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.button.secondary.light {
+  color: var(--white);
+  border-color: rgba(255, 255, 255, 0.82);
+}
+
+.button.inverted {
+  color: var(--red);
+  background: var(--white);
+}
+
+.band,
+.split-section,
+.mls-section,
+.listings-section,
+.open-houses-section,
+.agent-bio,
+.consultation-inner,
+footer {
+  padding-inline: clamp(20px, 6vw, 76px);
+}
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.92fr) minmax(280px, 1fr);
+  gap: clamp(28px, 6vw, 78px);
+  padding-top: 76px;
+  padding-bottom: 76px;
+  background: var(--soft);
+}
+
+.intro p:last-child {
+  align-self: end;
+  max-width: 740px;
+  font-size: 1.1rem;
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(320px, 1.2fr);
+  gap: clamp(32px, 6vw, 88px);
+  padding-top: 94px;
+  padding-bottom: 94px;
+}
+
+.split-section > div:first-child {
+  max-width: 560px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.feature-grid article {
+  min-height: 198px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: 0 10px 30px rgba(11, 11, 13, 0.05);
+}
+
+.feature-grid span {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: var(--red);
+  font-weight: 800;
+}
+
+.feature-grid p,
+.steps p {
+  margin-bottom: 0;
+}
+
+.open-houses-section {
+  padding-top: 88px;
+  padding-bottom: 88px;
+  color: var(--white);
+  background: var(--black);
+}
+
+.open-house-intro {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.1fr) minmax(260px, 0.9fr);
+  align-items: end;
+  gap: clamp(28px, 6vw, 80px);
+  margin-bottom: 38px;
+}
+
+.open-house-heading {
+  max-width: 760px;
+  margin-bottom: 0;
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(2.6rem, 5.5vw, 5.7rem);
+  font-weight: 900;
+  line-height: 0.94;
+  text-transform: uppercase;
+}
+
+.open-house-intro > p {
+  max-width: 590px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+.open-house-feature {
+  display: grid;
+  grid-template-columns: minmax(320px, 1.08fr) minmax(300px, 0.92fr);
+  min-height: 600px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: #171719;
+}
+
+.open-house-flyer-link {
+  display: block;
+  min-height: 0;
+  background: var(--white);
+}
+
+.open-house-flyer {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 760px;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.open-house-details {
+  align-self: center;
+  padding: clamp(34px, 5vw, 70px);
+}
+
+.open-house-status {
+  display: inline-block;
+  margin-bottom: 24px;
+  padding: 8px 12px;
+  color: var(--white);
+  background: var(--red);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.open-house-details h3 {
+  margin-bottom: 34px;
+  color: var(--white);
+  font-size: clamp(1.9rem, 3.5vw, 3.3rem);
+  line-height: 1.04;
+}
+
+.open-house-schedule {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-bottom: 28px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.open-house-schedule div {
+  min-height: 144px;
+  padding: 22px;
+  background: #171719;
+}
+
+.open-house-schedule span,
+.open-house-schedule strong {
+  display: block;
+}
+
+.open-house-schedule span {
+  margin-bottom: 8px;
+  color: var(--red);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.open-house-schedule strong {
+  margin-bottom: 5px;
+  color: var(--white);
+  font-size: 1.16rem;
+}
+
+.open-house-schedule p,
+.open-house-note {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.open-house-schedule p {
+  margin: 0;
+}
+
+.open-house-note {
+  margin-bottom: 26px;
+}
+
+.process {
+  padding-top: 88px;
+  padding-bottom: 88px;
+  background: var(--black);
+}
+
+.process h2 {
+  max-width: 720px;
+  color: var(--white);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: 34px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.steps div {
+  min-height: 190px;
+  padding: 28px;
+  background: var(--black);
+}
+
+.steps strong {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--white);
+  font-size: 1.16rem;
+}
+
+.steps p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.listings-section {
+  padding-top: 86px;
+  padding-bottom: 86px;
+  background: var(--soft);
+  border-top: 1px solid var(--line);
+}
+
+.listings-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.listings-header h2 {
+  max-width: 780px;
+}
+
+.listings-frame-wrap {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.listings-frame {
+  display: block;
+  width: 100%;
+  height: min(78vh, 820px);
+  min-height: 620px;
+  border: 0;
+  background: var(--white);
+}
+
+.mls-section {
+  justify-content: space-between;
+  padding-top: 70px;
+  padding-bottom: 70px;
+  border-bottom: 1px solid var(--line);
+}
+
+.mls-section div {
+  max-width: 720px;
+}
+
+.mls-section h2 {
+  font-size: clamp(1.9rem, 3.4vw, 3.2rem);
+}
+
+.consultation {
+  padding: 80px clamp(20px, 6vw, 76px);
+  background: var(--soft);
+}
+
+.consultation-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding-top: 34px;
+  padding-bottom: 34px;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--red), var(--black));
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.agent-card {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 58px);
+}
+
+.agent-photo {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border: 8px solid rgba(255, 255, 255, 0.86);
+  border-radius: 50%;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+}
+
+.consultation-inner h2 {
+  max-width: 760px;
+  color: var(--white);
+}
+
+.consultation-inner p:not(.section-label) {
+  max-width: 740px;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.consultation-inner .section-label {
+  color: #ffd7dc;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  overflow: hidden;
+  margin: 28px 0 24px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.contact-grid a,
+.contact-grid div {
+  min-height: 98px;
+  padding: 18px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.contact-grid span {
+  display: block;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.contact-grid strong {
+  display: block;
+  color: var(--white);
+  line-height: 1.35;
+}
+
+.agent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.agent-bio {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(38px, 7vw, 110px);
+  padding-top: 92px;
+  padding-bottom: 92px;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.agent-bio > div:first-child {
+  max-width: 620px;
+}
+
+.agent-bio h2 {
+  color: var(--black);
+}
+
+.agent-bio-copy {
+  max-width: 720px;
+  padding-top: 28px;
+  border-top: 4px solid var(--red);
+}
+
+.agent-bio-copy p {
+  color: #343438;
+  font-size: 1.08rem;
+  line-height: 1.8;
+}
+
+.agent-bio-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.trust-band {
+  padding-top: 38px;
+  padding-bottom: 38px;
+  background: var(--white);
+  border-top: 1px solid #e6e6e6;
+}
+
+.trust-band-inner {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 2fr);
+  align-items: center;
+  gap: 42px;
+}
+
+.trust-band .section-label {
+  margin: 0;
+  color: var(--black);
+}
+
+.trust-marks {
+  display: grid;
+  grid-template-columns: minmax(260px, 1fr) 150px 130px;
+  align-items: center;
+  justify-items: center;
+  gap: 38px;
+}
+
+.trust-logo {
+  display: block;
+  width: 100%;
+  height: 74px;
+  object-fit: contain;
+}
+
+.trust-logo-kw {
+  max-width: 390px;
+}
+
+.trust-logo-realtor {
+  max-width: 150px;
+}
+
+.trust-logo-housing {
+  max-width: 120px;
+}
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  background: var(--black);
+}
+
+.footer-affiliation {
+  width: min(320px, 38vw);
+  height: 54px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+footer p {
+  margin: 0;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 820px) {
+  .site-header {
+    position: absolute;
+    align-items: flex-start;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  nav {
+    gap: 8px;
+    font-size: 0.82rem;
+  }
+
+  nav a:not(.nav-cta) {
+    display: none;
+  }
+
+  .hero {
+    min-height: 88vh;
+    padding-top: 116px;
+  }
+
+  .hero-image {
+    object-position: 58% center;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.86), rgba(0, 0, 0, 0.56) 58%, rgba(0, 0, 0, 0.22)),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.54), rgba(0, 0, 0, 0));
+  }
+
+  h1 {
+    max-width: 9ch;
+  }
+
+  .intro,
+  .split-section,
+  .agent-bio,
+  .open-house-intro,
+  .open-house-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid,
+  .steps,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid article,
+  .steps div {
+    min-height: auto;
+  }
+
+  .mls-section,
+  .listings-header {
+    align-items: flex-start;
+  }
+
+  .listings-header {
+    flex-direction: column;
+  }
+
+  .listings-frame {
+    min-height: 560px;
+  }
+
+  .agent-card {
+    grid-template-columns: 1fr;
+  }
+
+  .agent-photo {
+    width: min(220px, 100%);
+  }
+
+  .agent-bio-copy {
+    padding-top: 24px;
+  }
+
+  .open-house-flyer {
+    max-height: 680px;
+  }
+
+  .trust-band-inner {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+
+  .trust-marks {
+    grid-template-columns: minmax(220px, 1fr) 130px 110px;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    padding: 14px 16px;
+  }
+
+  .brand strong {
+    font-size: 0.94rem;
+  }
+
+  .brand small {
+    font-size: 0.68rem;
+  }
+
+  .brand-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  .nav-cta {
+    padding: 0 14px;
+  }
+
+  .hero {
+    min-height: 86vh;
+    padding-inline: 18px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .consultation {
+    padding-inline: 0;
+  }
+
+  .consultation-inner {
+    border-radius: 0;
+  }
+
+  .contact-grid a,
+  .contact-grid div {
+    min-height: auto;
+  }
+
+  .agent-actions {
+    width: 100%;
+  }
+
+  .open-houses-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .agent-bio {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .open-house-schedule {
+    grid-template-columns: 1fr;
+  }
+
+  .open-house-schedule div {
+    min-height: auto;
+  }
+
+  footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .trust-marks {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 20px;
+  }
+
+  .trust-logo-kw {
+    grid-column: 1 / -1;
+    max-width: 310px;
+  }
+
+  .trust-logo-realtor,
+  .trust-logo-housing {
+    height: 66px;
+  }
+
+  .footer-affiliation {
+    width: min(290px, 100%);
+  }
+
+  footer p {
+    text-align: left;
+  }
+}
