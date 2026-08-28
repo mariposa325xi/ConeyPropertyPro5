@@ -650,29 +650,13 @@ footer {
   gap: 42px;
 }
 
-.trust-band .section-label {
-  margin: -50;
-  color: var(--black);
-}
-
-.trust-marks {
-  display: grid;
-  grid-template-columns: minmax(260px, 1fr) 150px 130px;
-  align-items: center;
-  justify-items: center;
-  gap: 38px;
-}
 
 .trust-logo {
   display: block;
   width: 100%;
   height: 74px;
   object-fit: contain;
-}
 
-.trust-logo-kw {
-  max-width: 390px;
-}
 
 .trust-logo-realtor {
   max-width: 150px;
