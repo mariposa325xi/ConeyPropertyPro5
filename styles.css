@@ -651,7 +651,7 @@ footer {
 }
 
 .trust-band .section-label {
-  margin: 0;
+  margin: 10;
   color: var(--black);
 }
 
