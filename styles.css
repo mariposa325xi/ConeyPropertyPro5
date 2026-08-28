@@ -875,7 +875,7 @@ footer p {
   
 
   .trust-marks {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 10fr 10fr;
     gap: 15px 10px;
   }
 
