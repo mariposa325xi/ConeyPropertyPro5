@@ -843,7 +843,7 @@ footer p {
     flex-direction: column;
   
 
-  .trust-marks {
+    .trust-marks {
     grid-template-columns: 10fr 10fr;
     gap: 15px 10px;
   }
@@ -862,6 +862,10 @@ footer p {
     width: min(290px, 100%);
   }
 
+  footer p {
+    text-align: left;
+  }
+}
   footer p {
     text-align: left;
   }
