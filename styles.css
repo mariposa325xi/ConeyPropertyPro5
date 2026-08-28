@@ -645,13 +645,13 @@ footer {
 
 .trust-band-inner {
   display: grid;
-  grid-template-columns: minmax(180px, 10fr) minmax(10, 10fr);
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 2fr);
   align-items: center;
   gap: 42px;
 }
 
 .trust-band .section-label {
-  margin: 50;
+  margin: -50;
   color: var(--black);
 }
 
