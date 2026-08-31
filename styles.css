@@ -636,20 +636,7 @@ footer {
   margin-bottom: 0;
 }
 
-.trust-band {
-  padding-top: 38px;
-  padding-bottom: 38px;
-  background: var(--white);
-  border-top: 1px solid #e6e6e6;
-}
 
-.trust-logo-realtor {
-  max-width: 150px;
-}
-
-.trust-logo-housing {
-  max-width: 120px;
-}
 
 footer {
   display: flex;
